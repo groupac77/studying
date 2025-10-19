@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Script Error HTML</title>
+</head>
+<body>
+  <h2>Demo Error Operasi Matematika</h2>
+  <p id="status">Menjalankan perhitungan...</p>
+  <p id="error" style="color:red; font-weight:bold;"></p>
+
+  <script>
+    try {
+      let angka = 100;
+      let teks = "seratus";
+      // Kesalahan: menjumlahkan angka dengan string bukan angka
+      let hasil = angka + teks.toUpperCase(); 
+      document.getElementById("status").innerText = "Hasil: " + hasil;
+    } catch (e) {
+      document.getElementById("error").innerText = "Terjadi error: " + e.message;
+      console.error("Detail error:", e);
+    } finally {
+      console.log("Proses selesai dengan error.");
+    }
+  </script>
+</body>
+</html>
